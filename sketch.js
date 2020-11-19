@@ -1,6 +1,6 @@
 var helicopterIMG, helicopterSprite, packageSprite,packageIMG;
 var packageBody,ground;
-var box1;
+var box1,box2,box3;
 var engine,world;
 
 const Engine = Matter.Engine;
@@ -18,8 +18,13 @@ function setup() {
 	createCanvas(800, 700);
 	rectMode(CENTER);
 
-	box1 = new Box(width/2,400,200,20);
-
+	box1 = createSprite(400,652,300,15);
+	box1.shapeColor="red";
+        box2 = createSprite(250,590,15,150);
+	box2.shapeColor="red";
+	box3 = createSprite(550,590,15,150);
+	box3.shapeColor="red";
+	
 	packageSprite=createSprite(width/2, 80, 10,10);
 	packageSprite.addImage(packageIMG)
 	packageSprite.scale=0.2
@@ -53,8 +58,6 @@ function draw() {
   Engine.update(engine);
   packageSprite.x= packageBody.position.x 
   packageSprite.y= packageBody.position.y 
-
-  box1.display();
 
   drawSprites();
  
